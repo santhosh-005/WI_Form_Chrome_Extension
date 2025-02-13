@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "FORM AUTOMATION",
+  "version": "1.0.0",
+  "description": "form automator",
+  "icons": {
+    "16": "icons/logo.png",
+    "32": "icons/logo.png",
+    "48": "icons/logo.png",
+    "128": "icons/logo.png"
+  },
+  "action": {
+    "default_title": "Open Side Panel",
+    "default_icon": {
+      "16": "icons/logo.png",
+      "32": "icons/logo.png",
+      "48": "icons/logo.png",
+      "128": "icons/logo.png"
+    }
+  },
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "alarms",
+    "notifications"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "index.html"
+  }
+}

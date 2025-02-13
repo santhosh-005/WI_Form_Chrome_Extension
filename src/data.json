@@ -1,0 +1,40 @@
+{
+    "work_integration_nature" : [
+        {"id" : 1, "name": "Campus Holiday - Simulated"},
+        {"id" : 2, "name": "Company Holiday - Industry"},
+        {"id" : 3, "name": "Work Integrated - Industry"},
+        {"id" : 4, "name": "Work Integrated - Simulated"},
+        {"id" : 5, "name": "I was on leave/absent for the day"}
+    ],
+    "company_names" : [
+        "Morgan Stanley",
+        "TI Clean Mobility",
+        "Dinosaur Whisper",
+        "Yellow .ai",
+        "Aeroh",
+        "Lowe's",
+        "FreshToHome",
+        "Josys",
+        "Plena",
+        "Clari",
+        "ICliniq",
+        "Nuvepro",
+        "Rupeek",
+        "Slippy",
+        "Progess",
+        "Workoi. (Previously called as Frientor",
+        "Linked Hash",
+        "Napses Technologies Private Limited",
+        "YouCloud Pay",
+        "Tata 1MG",
+        "PhonePe",
+        "Hafla",
+        "Media Kind",
+        "Thoughtworks",
+        "Dimensionless AI",
+        "Medable",
+        "MeshDefend",
+        "Sapphire IMS"
+    ]
+
+}
