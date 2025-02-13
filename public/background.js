@@ -60,7 +60,3 @@ chrome.alarms.onAlarm.addListener((alarm) => {
       });
     }
   });
-
-chrome.notifications.onClicked.addListener(() => {
-  chrome.sidePanel.open();
-});

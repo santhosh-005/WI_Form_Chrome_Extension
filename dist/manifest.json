@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "FORM AUTOMATION",
+  "name": "WI Form - Chrome Extension",
   "version": "1.0.0",
-  "description": "form automator",
+  "description": "Automate form submissions for daily task tracking and reporting",
   "icons": {
     "16": "icons/logo.png",
     "32": "icons/logo.png",
@@ -23,6 +23,9 @@
     "sidePanel",
     "alarms",
     "notifications"
+  ],
+  "host_permissions": [
+    "https://forms.zohopublic.in/*"
   ],
   "background": {
     "service_worker": "background.js",

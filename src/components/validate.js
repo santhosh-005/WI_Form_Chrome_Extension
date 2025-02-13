@@ -237,32 +237,37 @@ const validationRules = {
         return fields;
       }, {});
   
-    // try {
-    //   const response = await fetch('/api/submit', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(requiredFields)
-    //   });
+      try {
+        const response = await fetch("https://forms.zohopublic.in/gurmindersinghkal1/form/Signup/formperma/GeJFMLBDfoWlIJfhI46Qyx0Dlf3kHhMSRsvMItq_Riw/records", {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/zoho.forms-v1+json',
+            'Content-Type': 'application/json',
+            'Origin': 'https://forms.zohopublic.in',
+            'Referer': 'https://forms.zohopublic.in/gurmindersinghkal1/form/Signup/formperma/GeJFMLBDfoWlIJfhI46Qyx0Dlf3kHhMSRsvMItq_Riw',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: JSON.stringify(requiredFields)
+        });
+    
+        if (!response.ok) {
+          throw new Error('Submission failed');
+        }
   
-    //   if (!response.ok) {
-    //     throw new Error('Submission failed');
-    //   }
-    // console.log(requiredFields)
-  
-      return {
-        success: true,
-        // data: await response.json()
-      };
-    // } catch (error) {
-      // return {
-      //   success: false,
-      //   error: error.message
-      // };
-    // }
-
-    console.log(requiredFields)
+        const data = await response.json();
+        // console.log("Form submitted successfully:", data);
+    
+        return {
+          success: true,
+          data: data
+        };
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        return {
+          success: false,
+          error: error.message
+        };
+      }
   };
   
   export { validateForm, handleSubmit };
