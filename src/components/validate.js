@@ -69,7 +69,7 @@ const validationRules = {
       const dropdownId = formData.Dropdown?.id?.toString();
       return (dropdownId === '3' || dropdownId === '4') && (formData.Slider || 3) > 3;
     },
-    validate: (value) => value?.length > 0,
+    validate: (value) => true,
     message: 'Please describe your wins for the day'
   },
   // Page 4 rules
@@ -105,7 +105,7 @@ const validationRules = {
       const dropdownId = formData.Dropdown?.id?.toString();
       return (dropdownId === '3' || dropdownId === '4') && (formData.Slider2 || 3) > 3;
     },
-    validate: (value) => value?.length > 0,
+    validate: (value) => true,
     message: 'Please describe your wins for the day'
   },
   // Page 5 rules
@@ -184,6 +184,9 @@ const validationRules = {
       if (isRequired) {
         // Check if field is empty
         if (!formData[fieldName]) {
+          if (fieldName === 'MultiLine1' || fieldName === 'MultiLine5') {
+            return;
+          }
           errors[fieldName] = {
             message: rules.message,
             page: rules.page

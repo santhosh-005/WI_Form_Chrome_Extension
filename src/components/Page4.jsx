@@ -126,7 +126,7 @@ export default function Page4({ formData, onInputChange, errors }) {
         }`}
       >
         <label className="text-sm font-medium block">
-          What were your wins for the day? <span className="text-red-500">*</span>
+          What were your wins for the day?
         </label>
         <textarea
           name="MultiLine5"

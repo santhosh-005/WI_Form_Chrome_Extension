@@ -1,6 +1,17 @@
-import { useState } from "react";
-export default function Page1({ Email, Date, TermsConditions, onInputChange, errors }) {
-//  console.log(1,errors)
+import { useState, useMemo} from "react";
+export default function Page1({ Email, Date: selectedDate, TermsConditions, onInputChange, errors }) {
+
+  const { today, yesterday } = useMemo(() => ({
+    today: new window.Date().toISOString().split('T')[0],
+    yesterday: new window.Date(Date.now() - 86400000).toISOString().split('T')[0]
+  }), []);
+
+  const handleDateChange = (e) => {
+    const selectedDate = e.target.value;
+    if (selectedDate === today || selectedDate === yesterday) {
+      onInputChange(e.target.name, selectedDate);
+    }
+  };
   return (
     <div>
       {/* Email Input */}
@@ -10,11 +21,11 @@ export default function Page1({ Email, Date, TermsConditions, onInputChange, err
         </label>
         <input
           type="email"
-          name="Email"  
+          name="Email"
           className="w-full p-2 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-blue-600"
           value={Email}
           onChange={(e) => onInputChange(e.target.name, e.target.value)}
-          placeholder = "Santhoshkumar.v@kalvium.community"
+          placeholder="Santhoshkumar.v@kalvium.community"
         />
         {errors?.Email && (
           <p className="text-red-500 text-xs">{errors.Email.message}</p>
@@ -27,10 +38,12 @@ export default function Page1({ Email, Date, TermsConditions, onInputChange, err
         </label>
         <input
           type="date"
-          name="Date"  
+          name="Date"
           className="mt-1 w-full p-2 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-blue-600 appearance-none"
-          value={Date}
-          onChange={(e) => onInputChange(e.target.name, e.target.value)}
+          value={selectedDate}
+          min={yesterday}
+          max={today}
+          onChange={handleDateChange}
         />
         {errors?.Date && (
           <p className="text-red-500 text-xs">{errors?.Date?.message}</p>
@@ -57,9 +70,9 @@ export default function Page1({ Email, Date, TermsConditions, onInputChange, err
         />
         <label htmlFor="terms" className="ml-2 text-xs">I accept the Terms and Conditions.</label>
       </div>
-        {errors?.TermsConditions && (
-          <p className="text-red-500 text-xs mt-1">{errors?.TermsConditions?.message}</p>
-        )}
+      {errors?.TermsConditions && (
+        <p className="text-red-500 text-xs mt-1">{errors?.TermsConditions?.message}</p>
+      )}
     </div>
   );
 }
